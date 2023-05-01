@@ -13,8 +13,8 @@ import (
 	"github.com/ZeeeUs/gRPC-Service/internal/config"
 	pb "github.com/ZeeeUs/gRPC-Service/internal/social_network/proto"
 	"github.com/ZeeeUs/gRPC-Service/internal/social_network/repository"
-	socialNetwork "github.com/ZeeeUs/gRPC-Service/internal/social_network/transport/grpc"
-	"github.com/ZeeeUs/gRPC-Service/internal/social_network/usecase"
+	"github.com/ZeeeUs/gRPC-Service/internal/social_network/service"
+	grpcTransport "github.com/ZeeeUs/gRPC-Service/internal/social_network/transport/grpc"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
@@ -22,7 +22,7 @@ import (
 func main() {
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 
-	cfg, err := config.NewConfig()
+	cfg, err := config.GetConfig()
 	if err != nil {
 		log.Fatal().Msgf("failed to get config: %v", err)
 	}
@@ -32,11 +32,6 @@ func main() {
 
 	ctx, cancel := context.WithCancel(context.Background())
 
-	listener, err := net.Listen(cfg.GRPCConfig.Network, cfg.GRPCConfig.Address)
-	if err != nil {
-		log.Error().Err(err).Msg("can't start listener")
-	}
-
 	grpcServer := grpc.NewServer(grpc.KeepaliveParams(keepalive.ServerParameters{
 		MaxConnectionIdle: cfg.GRPCConfig.MaxConnectionIdle,
 		Timeout:           cfg.GRPCConfig.Timeout,
@@ -44,10 +39,14 @@ func main() {
 	}))
 
 	repo := repository.New(log.Logger)
-	uc := usecase.New(log.Logger, repo)
-	svc := socialNetwork.New(log.Logger, uc)
+	svc := service.New(log.Logger, repo)
+	server := grpcTransport.New(log.Logger, svc)
 
-	pb.RegisterSocialNetworkServer(grpcServer, svc)
+	listener, err := net.Listen(cfg.GRPCConfig.Network, cfg.GRPCConfig.Address)
+	if err != nil {
+		log.Error().Err(err).Msg("can't start listener")
+	}
+	pb.RegisterSocialNetworkServer(grpcServer, server)
 
 	go func() {
 		if err = grpcServer.Serve(listener); err != nil {

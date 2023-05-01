@@ -1,4 +1,4 @@
-package usecase
+package service
 
 import (
 	"context"
@@ -8,21 +8,21 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type SocialNetworkUsecase interface {
+type SocialNetworkService interface {
 	CreateAccount(ctx context.Context, account models.Account) (int64, error)
 }
 
-type socialNetworkUsecase struct {
+type socialNetworkService struct {
 	socialNetworkRepo repository.SocialNetworkRepo
 	log               zerolog.Logger
 }
 
-func (snu *socialNetworkUsecase) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
+func (snu *socialNetworkService) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
 	return snu.socialNetworkRepo.CreateAccount(ctx, account)
 }
 
-func New(log zerolog.Logger, repo repository.SocialNetworkRepo) SocialNetworkUsecase {
-	return &socialNetworkUsecase{
+func New(log zerolog.Logger, repo repository.SocialNetworkRepo) SocialNetworkService {
+	return &socialNetworkService{
 		socialNetworkRepo: repo,
 		log:               log,
 	}

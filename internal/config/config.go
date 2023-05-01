@@ -27,7 +27,7 @@ func SetupSource(cfgType string) (*viper.Viper, error) {
 	return v, nil
 }
 
-func NewConfig() (*Config, error) {
+func GetConfig() (*Config, error) {
 	v, err := SetupSource("env")
 	if err != nil {
 		return nil, err

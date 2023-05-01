@@ -7,15 +7,15 @@ import (
 
 	"github.com/ZeeeUs/gRPC-Service/internal/models"
 	pb "github.com/ZeeeUs/gRPC-Service/internal/social_network/proto"
-	"github.com/ZeeeUs/gRPC-Service/internal/social_network/usecase"
+	"github.com/ZeeeUs/gRPC-Service/internal/social_network/service"
 	"github.com/ZeeeUs/gRPC-Service/pkg/grpc_errors"
 	"github.com/rs/zerolog"
 )
 
 type SocialNetwork struct {
 	pb.UnimplementedSocialNetworkServer
-	socialNetworkUC usecase.SocialNetworkUsecase
-	log             zerolog.Logger
+	socialNetworkService service.SocialNetworkService
+	log                  zerolog.Logger
 }
 
 func (sn *SocialNetwork) CreateAccount(ctx context.Context, req *pb.CreateAccountRequest) (*pb.CreateAccountResponse, error) {
@@ -25,7 +25,7 @@ func (sn *SocialNetwork) CreateAccount(ctx context.Context, req *pb.CreateAccoun
 		Age:   req.Age,
 	}
 
-	id, err := sn.socialNetworkUC.CreateAccount(ctx, newAccount)
+	id, err := sn.socialNetworkService.CreateAccount(ctx, newAccount)
 	if err != nil {
 		sn.log.Error().Err(err).Msg("failed to create new account")
 		return nil, status.Error(grpc_errors.ParseGRPCErrStatusCode(err), "invalid request")
@@ -33,9 +33,9 @@ func (sn *SocialNetwork) CreateAccount(ctx context.Context, req *pb.CreateAccoun
 	return &pb.CreateAccountResponse{Id: id}, nil
 }
 
-func New(log zerolog.Logger, socialNetworkUC usecase.SocialNetworkUsecase) *SocialNetwork {
+func New(log zerolog.Logger, socialNetworkService service.SocialNetworkService) *SocialNetwork {
 	return &SocialNetwork{
-		socialNetworkUC: socialNetworkUC,
-		log:             log,
+		socialNetworkService: socialNetworkService,
+		log:                  log,
 	}
 }
