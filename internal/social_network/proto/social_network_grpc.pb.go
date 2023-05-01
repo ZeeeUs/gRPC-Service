@@ -2,13 +2,12 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.12
-// source: proto/social_network.proto
+// source: internal/social_network/proto/social_network.proto
 
-package social_network
+package socialNetwork
 
 import (
 	context "context"
-
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -19,7 +18,7 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// SocialNetworkClient is the client API for SocialNetwork service.
+// SocialNetworkClient is the client API for SocialNetwork usecase.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SocialNetworkClient interface {
@@ -43,7 +42,7 @@ func (c *socialNetworkClient) CreateAccount(ctx context.Context, in *CreateAccou
 	return out, nil
 }
 
-// SocialNetworkServer is the server API for SocialNetwork service.
+// SocialNetworkServer is the server API for SocialNetwork usecase.
 // All implementations must embed UnimplementedSocialNetworkServer
 // for forward compatibility
 type SocialNetworkServer interface {
@@ -60,7 +59,7 @@ func (UnimplementedSocialNetworkServer) CreateAccount(context.Context, *CreateAc
 }
 func (UnimplementedSocialNetworkServer) mustEmbedUnimplementedSocialNetworkServer() {}
 
-// UnsafeSocialNetworkServer may be embedded to opt out of forward compatibility for this service.
+// UnsafeSocialNetworkServer may be embedded to opt out of forward compatibility for this usecase.
 // Use of this interface is not recommended, as added methods to SocialNetworkServer will
 // result in compilation errors.
 type UnsafeSocialNetworkServer interface {
@@ -89,7 +88,7 @@ func _SocialNetwork_CreateAccount_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-// SocialNetwork_ServiceDesc is the grpc.ServiceDesc for SocialNetwork service.
+// SocialNetwork_ServiceDesc is the grpc.ServiceDesc for SocialNetwork usecase.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SocialNetwork_ServiceDesc = grpc.ServiceDesc{
@@ -102,5 +101,5 @@ var SocialNetwork_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/social_network.proto",
+	Metadata: "internal/social_network/proto/social_network.proto",
 }
