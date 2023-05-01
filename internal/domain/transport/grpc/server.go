@@ -5,9 +5,9 @@ import (
 
 	"google.golang.org/grpc/status"
 
+	pb "github.com/ZeeeUs/gRPC-Service/internal/domain/proto"
+	"github.com/ZeeeUs/gRPC-Service/internal/domain/service"
 	"github.com/ZeeeUs/gRPC-Service/internal/models"
-	pb "github.com/ZeeeUs/gRPC-Service/internal/social_network/proto"
-	"github.com/ZeeeUs/gRPC-Service/internal/social_network/service"
 	"github.com/ZeeeUs/gRPC-Service/pkg/grpc_errors"
 	"github.com/rs/zerolog"
 )

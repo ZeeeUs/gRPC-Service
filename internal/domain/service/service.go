@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
+	"github.com/ZeeeUs/gRPC-Service/internal/domain/repository"
 	"github.com/ZeeeUs/gRPC-Service/internal/models"
-	"github.com/ZeeeUs/gRPC-Service/internal/social_network/repository"
 	"github.com/rs/zerolog"
 )
 

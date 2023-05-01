@@ -16,7 +16,7 @@ type socialNetworkRepo struct {
 }
 
 func (snr *socialNetworkRepo) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
-	//query := "INSERT INTO social_network.account (name, email, age) VALUES ($1, $2, $3)"
+	//query := "INSERT INTO domain.account (name, email, age) VALUES ($1, $2, $3)"
 	return 23, nil
 }
 

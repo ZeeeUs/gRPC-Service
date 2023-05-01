@@ -1,6 +1,8 @@
 syntax = "proto3";
 option go_package = ".;grpc";
 
+import "google/api/annotations.proto";
+
 message CreateAccountRequest {
   string name = 1;
   string email = 2;
@@ -12,5 +14,10 @@ message CreateAccountResponse {
 }
 
 service SocialNetwork {
-  rpc CreateAccount(CreateAccountRequest) returns(CreateAccountResponse);
+  rpc CreateAccount(CreateAccountRequest) returns(CreateAccountResponse) {
+    option(google.api.http) = {
+      post: "/sign-on",
+      body: "*"
+    };
+  }
 }
