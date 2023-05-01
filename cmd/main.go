@@ -22,10 +22,7 @@ import (
 func main() {
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 
-	cfg, err := config.GetConfig()
-	if err != nil {
-		log.Fatal().Msgf("failed to get config: %v", err)
-	}
+	cfg := config.GetConfig()
 
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
