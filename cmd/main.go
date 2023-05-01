@@ -53,10 +53,10 @@ func main() {
 	}()
 
 	select {
-	case v := <-shutdown:
-		log.Info().Msgf("start shutdown server: %v", v)
-	case done := <-ctx.Done():
-		log.Error().Msgf("ctx.Done: %v", done)
+	case <-shutdown:
+		log.Info().Msgf("start shutdown server by sys call")
+	case <-ctx.Done():
+		log.Error().Msgf("start shutdown server by context")
 	}
 
 	grpcServer.GracefulStop()
