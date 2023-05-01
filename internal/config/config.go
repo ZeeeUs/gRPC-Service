@@ -18,20 +18,17 @@ type Config struct {
 	GRPCConfig GRPCConfig
 }
 
-func SetupSource(cfgType string) (*viper.Viper, error) {
+func SetupSource(cfgType string) *viper.Viper {
 	v := viper.New()
 
 	v.SetConfigType(cfgType)
 	v.AutomaticEnv()
 
-	return v, nil
+	return v
 }
 
-func GetConfig() (*Config, error) {
-	v, err := SetupSource("env")
-	if err != nil {
-		return nil, err
-	}
+func GetConfig() *Config {
+	v := SetupSource("env")
 
 	return &Config{
 		GRPCConfig: GRPCConfig{
@@ -41,5 +38,5 @@ func GetConfig() (*Config, error) {
 			Timeout:           v.GetDuration("GRPC_SERVER_TIMEOUT"),
 			MaxConnectionAge:  v.GetDuration("GRPC_MAX_CONN_AGE"),
 		},
-	}, nil
+	}
 }
