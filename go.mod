@@ -3,6 +3,7 @@ module github.com/ZeeeUs/gRPC-Service
 go 1.19
 
 require (
+	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.29.1
 	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0

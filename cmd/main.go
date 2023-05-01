@@ -3,6 +3,8 @@ package main
 import (
 	"net"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"google.golang.org/grpc"
@@ -18,6 +20,9 @@ import (
 
 func main() {
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
+
+	shutdown := make(chan os.Signal, 1)
+	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
 
 	listener, err := net.Listen("tcp", ":8089")
 	if err != nil {
@@ -41,4 +46,8 @@ func main() {
 			log.Error().Err(err).Msg("failed to serve gRPC server")
 		}
 	}()
+
+	<-shutdown
+	log.Info().Msgf("start shutdown server")
+	grpcServer.GracefulStop()
 }
