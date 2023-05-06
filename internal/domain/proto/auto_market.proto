@@ -13,7 +13,7 @@ message CreateAccountResponse {
   int64 id = 1;
 }
 
-service SocialNetwork {
+service AutoMarket {
   rpc CreateAccount(CreateAccountRequest) returns(CreateAccountResponse) {
     option(google.api.http) = {
       post: "/sign-on",

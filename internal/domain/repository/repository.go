@@ -7,21 +7,20 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type SocialNetworkRepo interface {
+type AutoMarketRepo interface {
 	CreateAccount(ctx context.Context, account models.Account) (int64, error)
 }
 
-type socialNetworkRepo struct {
+type autoMarketRepo struct {
 	log zerolog.Logger
 }
 
-func (snr *socialNetworkRepo) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
-	//query := "INSERT INTO domain.account (name, email, age) VALUES ($1, $2, $3)"
+func (am *autoMarketRepo) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
 	return 23, nil
 }
 
-func New(log zerolog.Logger) SocialNetworkRepo {
-	return &socialNetworkRepo{
+func New(log zerolog.Logger) AutoMarketRepo {
+	return &autoMarketRepo{
 		log: log,
 	}
 }

@@ -4,7 +4,7 @@ generate_server:
 	--go_opt=paths=source_relative \
 	--go-grpc_out=. \
 	--go-grpc_opt=paths=source_relative \
-	internal/domain/proto/social_network.proto
+	internal/domain/proto/auto_market.proto
 
 generate_gateway:
 	protoc -I . \
@@ -12,4 +12,4 @@ generate_gateway:
     --grpc-gateway_opt logtostderr=true \
     --grpc-gateway_opt paths=source_relative \
     --grpc-gateway_opt generate_unbound_methods=true \
-    internal/domain/proto/social_network.proto
+    internal/domain/proto/auto_market.proto

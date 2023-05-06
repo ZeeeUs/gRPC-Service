@@ -11,14 +11,15 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+
 	"github.com/ZeeeUs/gRPC-Service/internal/config"
 	pb "github.com/ZeeeUs/gRPC-Service/internal/domain/proto"
 	"github.com/ZeeeUs/gRPC-Service/internal/domain/repository"
 	"github.com/ZeeeUs/gRPC-Service/internal/domain/service"
 	transport "github.com/ZeeeUs/gRPC-Service/internal/domain/transport/grpc"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
 )
 
 func main() {
@@ -45,7 +46,7 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("can't start listener")
 	}
-	pb.RegisterSocialNetworkServer(grpcServer, server)
+	pb.RegisterAutoMarketServer(grpcServer, server)
 
 	go func() {
 		if err = grpcServer.Serve(listener); err != nil {
@@ -56,7 +57,7 @@ func main() {
 
 	go func() {
 		mux := runtime.NewServeMux()
-		if err := pb.RegisterSocialNetworkHandlerServer(context.Background(), mux, server); err != nil {
+		if err := pb.RegisterAutoMarketHandlerServer(context.Background(), mux, server); err != nil {
 			log.Error().Err(err).Msg("failed to register http server")
 			cancel()
 		}

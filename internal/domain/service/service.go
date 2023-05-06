@@ -8,22 +8,22 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type SocialNetworkService interface {
+type AutoMarketService interface {
 	CreateAccount(ctx context.Context, account models.Account) (int64, error)
 }
 
-type socialNetworkService struct {
-	socialNetworkRepo repository.SocialNetworkRepo
-	log               zerolog.Logger
+type autoMarketService struct {
+	autoMarketRepo repository.AutoMarketRepo
+	log            zerolog.Logger
 }
 
-func (snu *socialNetworkService) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
-	return snu.socialNetworkRepo.CreateAccount(ctx, account)
+func (am *autoMarketService) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
+	return am.autoMarketRepo.CreateAccount(ctx, account)
 }
 
-func New(log zerolog.Logger, repo repository.SocialNetworkRepo) SocialNetworkService {
-	return &socialNetworkService{
-		socialNetworkRepo: repo,
-		log:               log,
+func New(log zerolog.Logger, autoMarketRepo repository.AutoMarketRepo) AutoMarketService {
+	return &autoMarketService{
+		autoMarketRepo: autoMarketRepo,
+		log:            log,
 	}
 }
