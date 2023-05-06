@@ -20,12 +20,27 @@ import (
 	"github.com/ZeeeUs/gRPC-Service/internal/domain/repository"
 	"github.com/ZeeeUs/gRPC-Service/internal/domain/service"
 	transport "github.com/ZeeeUs/gRPC-Service/internal/domain/transport/grpc"
+	"github.com/ZeeeUs/gRPC-Service/pkg/postgres"
 )
 
 func main() {
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 
 	cfg := config.GetConfig()
+	pgConn, err := postgres.NewPoolConnection(
+		context.Background(),
+		cfg.DatabaseConfig.Name,
+		cfg.DatabaseConfig.Address,
+		cfg.DatabaseConfig.User,
+		cfg.DatabaseConfig.Password,
+		cfg.DatabaseConfig.MaxIdleLifetime,
+		cfg.DatabaseConfig.MaxLifetime,
+		cfg.DatabaseConfig.PrepareCacheCap,
+		cfg.DatabaseConfig.MaxConn,
+	)
+	if err != nil {
+		log.Fatal().Err(err)
+	}
 
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
@@ -38,7 +53,7 @@ func main() {
 		MaxConnectionAge:  cfg.GRPCConfig.MaxConnectionAge,
 	}))
 
-	repo := repository.New(log.Logger)
+	repo := repository.New(log.Logger, pgConn)
 	svc := service.New(log.Logger, repo)
 	server := transport.New(log.Logger, svc)
 
