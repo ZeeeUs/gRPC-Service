@@ -33,6 +33,14 @@ func (am *AutoMarket) CreatePublication(ctx context.Context, req *pb.CreatePubli
 		Mileage:        req.Mileage,
 		PicsCount:      req.PicsCount,
 		OwnerCount:     req.OwnerCount,
+		Color:          req.Color,
+		BodyType:       req.BodyType,
+		DriveGear:      req.DriveGear,
+		GearBox:        req.GearBox,
+		EngineType:     req.EngineType,
+		EngineCapacity: req.EngineCapacity,
+		EnginePower:    req.EnginePower,
+		Description:    req.Description,
 	}
 
 	// TODO добавить поддержку userID
