@@ -21,6 +21,1010 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type BodyType struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *BodyType) Reset() {
+	*x = BodyType{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *BodyType) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BodyType) ProtoMessage() {}
+
+func (x *BodyType) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BodyType.ProtoReflect.Descriptor instead.
+func (*BodyType) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *BodyType) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *BodyType) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type GetBodyTypesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetBodyTypesRequest) Reset() {
+	*x = GetBodyTypesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBodyTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBodyTypesRequest) ProtoMessage() {}
+
+func (x *GetBodyTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBodyTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetBodyTypesRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{1}
+}
+
+type GetBodyTypesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	BodyTypes []*BodyType `protobuf:"bytes,1,rep,name=body_types,json=bodyTypes,proto3" json:"body_types,omitempty"`
+}
+
+func (x *GetBodyTypesResponse) Reset() {
+	*x = GetBodyTypesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBodyTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBodyTypesResponse) ProtoMessage() {}
+
+func (x *GetBodyTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBodyTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetBodyTypesResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetBodyTypesResponse) GetBodyTypes() []*BodyType {
+	if x != nil {
+		return x.BodyTypes
+	}
+	return nil
+}
+
+type Brand struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *Brand) Reset() {
+	*x = Brand{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Brand) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Brand) ProtoMessage() {}
+
+func (x *Brand) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Brand.ProtoReflect.Descriptor instead.
+func (*Brand) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Brand) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Brand) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type GetBrandsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetBrandsRequest) Reset() {
+	*x = GetBrandsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBrandsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBrandsRequest) ProtoMessage() {}
+
+func (x *GetBrandsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBrandsRequest.ProtoReflect.Descriptor instead.
+func (*GetBrandsRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{4}
+}
+
+type GetBrandsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Brands []*Brand `protobuf:"bytes,1,rep,name=brands,proto3" json:"brands,omitempty"`
+}
+
+func (x *GetBrandsResponse) Reset() {
+	*x = GetBrandsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBrandsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBrandsResponse) ProtoMessage() {}
+
+func (x *GetBrandsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBrandsResponse.ProtoReflect.Descriptor instead.
+func (*GetBrandsResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetBrandsResponse) GetBrands() []*Brand {
+	if x != nil {
+		return x.Brands
+	}
+	return nil
+}
+
+type Color struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id      uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name    string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	HexCode string `protobuf:"bytes,3,opt,name=hex_code,json=hexCode,proto3" json:"hex_code,omitempty"`
+}
+
+func (x *Color) Reset() {
+	*x = Color{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Color) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Color) ProtoMessage() {}
+
+func (x *Color) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Color.ProtoReflect.Descriptor instead.
+func (*Color) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Color) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Color) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Color) GetHexCode() string {
+	if x != nil {
+		return x.HexCode
+	}
+	return ""
+}
+
+type GetColorsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetColorsRequest) Reset() {
+	*x = GetColorsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetColorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColorsRequest) ProtoMessage() {}
+
+func (x *GetColorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColorsRequest.ProtoReflect.Descriptor instead.
+func (*GetColorsRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{7}
+}
+
+type GetColorsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Colors []*Color `protobuf:"bytes,1,rep,name=colors,proto3" json:"colors,omitempty"`
+}
+
+func (x *GetColorsResponse) Reset() {
+	*x = GetColorsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetColorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColorsResponse) ProtoMessage() {}
+
+func (x *GetColorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColorsResponse.ProtoReflect.Descriptor instead.
+func (*GetColorsResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetColorsResponse) GetColors() []*Color {
+	if x != nil {
+		return x.Colors
+	}
+	return nil
+}
+
+type DriveGear struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *DriveGear) Reset() {
+	*x = DriveGear{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DriveGear) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DriveGear) ProtoMessage() {}
+
+func (x *DriveGear) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DriveGear.ProtoReflect.Descriptor instead.
+func (*DriveGear) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *DriveGear) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *DriveGear) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type GetDriveGearsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetDriveGearsRequest) Reset() {
+	*x = GetDriveGearsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetDriveGearsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDriveGearsRequest) ProtoMessage() {}
+
+func (x *GetDriveGearsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDriveGearsRequest.ProtoReflect.Descriptor instead.
+func (*GetDriveGearsRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{10}
+}
+
+type GetDriveGearsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DriveGears []*DriveGear `protobuf:"bytes,1,rep,name=drive_gears,json=driveGears,proto3" json:"drive_gears,omitempty"`
+}
+
+func (x *GetDriveGearsResponse) Reset() {
+	*x = GetDriveGearsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetDriveGearsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDriveGearsResponse) ProtoMessage() {}
+
+func (x *GetDriveGearsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDriveGearsResponse.ProtoReflect.Descriptor instead.
+func (*GetDriveGearsResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetDriveGearsResponse) GetDriveGears() []*DriveGear {
+	if x != nil {
+		return x.DriveGears
+	}
+	return nil
+}
+
+type Engine struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *Engine) Reset() {
+	*x = Engine{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Engine) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Engine) ProtoMessage() {}
+
+func (x *Engine) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Engine.ProtoReflect.Descriptor instead.
+func (*Engine) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Engine) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Engine) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type GetEnginesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetEnginesRequest) Reset() {
+	*x = GetEnginesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetEnginesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnginesRequest) ProtoMessage() {}
+
+func (x *GetEnginesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnginesRequest.ProtoReflect.Descriptor instead.
+func (*GetEnginesRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{13}
+}
+
+type GetEnginesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Engines []*Engine `protobuf:"bytes,1,rep,name=engines,proto3" json:"engines,omitempty"`
+}
+
+func (x *GetEnginesResponse) Reset() {
+	*x = GetEnginesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetEnginesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnginesResponse) ProtoMessage() {}
+
+func (x *GetEnginesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnginesResponse.ProtoReflect.Descriptor instead.
+func (*GetEnginesResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetEnginesResponse) GetEngines() []*Engine {
+	if x != nil {
+		return x.Engines
+	}
+	return nil
+}
+
+type GearBox struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+}
+
+func (x *GearBox) Reset() {
+	*x = GearBox{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GearBox) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GearBox) ProtoMessage() {}
+
+func (x *GearBox) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GearBox.ProtoReflect.Descriptor instead.
+func (*GearBox) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GearBox) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *GearBox) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type GetGearBoxesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetGearBoxesRequest) Reset() {
+	*x = GetGearBoxesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetGearBoxesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGearBoxesRequest) ProtoMessage() {}
+
+func (x *GetGearBoxesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGearBoxesRequest.ProtoReflect.Descriptor instead.
+func (*GetGearBoxesRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{16}
+}
+
+type GetGearBoxesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	GearBoxes []*GearBox `protobuf:"bytes,1,rep,name=gear_boxes,json=gearBoxes,proto3" json:"gear_boxes,omitempty"`
+}
+
+func (x *GetGearBoxesResponse) Reset() {
+	*x = GetGearBoxesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetGearBoxesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGearBoxesResponse) ProtoMessage() {}
+
+func (x *GetGearBoxesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGearBoxesResponse.ProtoReflect.Descriptor instead.
+func (*GetGearBoxesResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetGearBoxesResponse) GetGearBoxes() []*GearBox {
+	if x != nil {
+		return x.GearBoxes
+	}
+	return nil
+}
+
+type Model struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id       uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name     string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	BrandId  uint64 `protobuf:"varint,3,opt,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty"`
+	ParentId uint64 `protobuf:"varint,4,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"`
+}
+
+func (x *Model) Reset() {
+	*x = Model{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[18]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Model) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Model) ProtoMessage() {}
+
+func (x *Model) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[18]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Model.ProtoReflect.Descriptor instead.
+func (*Model) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *Model) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Model) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Model) GetBrandId() uint64 {
+	if x != nil {
+		return x.BrandId
+	}
+	return 0
+}
+
+func (x *Model) GetParentId() uint64 {
+	if x != nil {
+		return x.ParentId
+	}
+	return 0
+}
+
+type GetModelsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetModelsRequest) Reset() {
+	*x = GetModelsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[19]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetModelsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelsRequest) ProtoMessage() {}
+
+func (x *GetModelsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[19]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelsRequest.ProtoReflect.Descriptor instead.
+func (*GetModelsRequest) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{19}
+}
+
+type GetModelsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Models []*Model `protobuf:"bytes,1,rep,name=models,proto3" json:"models,omitempty"`
+}
+
+func (x *GetModelsResponse) Reset() {
+	*x = GetModelsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[20]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetModelsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelsResponse) ProtoMessage() {}
+
+func (x *GetModelsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[20]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelsResponse.ProtoReflect.Descriptor instead.
+func (*GetModelsResponse) Descriptor() ([]byte, []int) {
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetModelsResponse) GetModels() []*Model {
+	if x != nil {
+		return x.Models
+	}
+	return nil
+}
+
 type CreatePublicationRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -46,7 +1050,7 @@ type CreatePublicationRequest struct {
 func (x *CreatePublicationRequest) Reset() {
 	*x = CreatePublicationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[0]
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -59,7 +1063,7 @@ func (x *CreatePublicationRequest) String() string {
 func (*CreatePublicationRequest) ProtoMessage() {}
 
 func (x *CreatePublicationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[0]
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -72,7 +1076,7 @@ func (x *CreatePublicationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePublicationRequest.ProtoReflect.Descriptor instead.
 func (*CreatePublicationRequest) Descriptor() ([]byte, []int) {
-	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{0}
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CreatePublicationRequest) GetBrand() uint64 {
@@ -191,7 +1195,7 @@ type CreatePublicationResponse struct {
 func (x *CreatePublicationResponse) Reset() {
 	*x = CreatePublicationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[1]
+		mi := &file_internal_domain_proto_auto_market_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -204,7 +1208,7 @@ func (x *CreatePublicationResponse) String() string {
 func (*CreatePublicationResponse) ProtoMessage() {}
 
 func (x *CreatePublicationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[1]
+	mi := &file_internal_domain_proto_auto_market_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +1221,7 @@ func (x *CreatePublicationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePublicationResponse.ProtoReflect.Descriptor instead.
 func (*CreatePublicationResponse) Descriptor() ([]byte, []int) {
-	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{1}
+	return file_internal_domain_proto_auto_market_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CreatePublicationResponse) GetId() uint64 {
@@ -234,7 +1238,68 @@ var file_internal_domain_proto_auto_market_proto_rawDesc = []byte{
 	0x6e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x61, 0x75, 0x74, 0x6f, 0x5f, 0x6d, 0x61, 0x72,
 	0x6b, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
 	0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xd7, 0x03, 0x0a, 0x18, 0x43, 0x72, 0x65, 0x61,
+	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x2e, 0x0a, 0x08, 0x42, 0x6f, 0x64, 0x79, 0x54,
+	0x79, 0x70, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x15, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x42, 0x6f,
+	0x64, 0x79, 0x54, 0x79, 0x70, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x40,
+	0x0a, 0x14, 0x47, 0x65, 0x74, 0x42, 0x6f, 0x64, 0x79, 0x54, 0x79, 0x70, 0x65, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x0a, 0x62, 0x6f, 0x64, 0x79, 0x5f, 0x74,
+	0x79, 0x70, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x09, 0x2e, 0x42, 0x6f, 0x64,
+	0x79, 0x54, 0x79, 0x70, 0x65, 0x52, 0x09, 0x62, 0x6f, 0x64, 0x79, 0x54, 0x79, 0x70, 0x65, 0x73,
+	0x22, 0x2b, 0x0a, 0x05, 0x42, 0x72, 0x61, 0x6e, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x12, 0x0a,
+	0x10, 0x47, 0x65, 0x74, 0x42, 0x72, 0x61, 0x6e, 0x64, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x22, 0x33, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x42, 0x72, 0x61, 0x6e, 0x64, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1e, 0x0a, 0x06, 0x62, 0x72, 0x61, 0x6e, 0x64, 0x73,
+	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x42, 0x72, 0x61, 0x6e, 0x64, 0x52, 0x06,
+	0x62, 0x72, 0x61, 0x6e, 0x64, 0x73, 0x22, 0x46, 0x0a, 0x05, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
+	0x61, 0x6d, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x68, 0x65, 0x78, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x68, 0x65, 0x78, 0x43, 0x6f, 0x64, 0x65, 0x22, 0x12,
+	0x0a, 0x10, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0x33, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1e, 0x0a, 0x06, 0x63, 0x6f, 0x6c, 0x6f, 0x72,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x52,
+	0x06, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x22, 0x2f, 0x0a, 0x09, 0x44, 0x72, 0x69, 0x76, 0x65,
+	0x47, 0x65, 0x61, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04,
+	0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x16, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x44,
+	0x72, 0x69, 0x76, 0x65, 0x47, 0x65, 0x61, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x22, 0x44, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x44, 0x72, 0x69, 0x76, 0x65, 0x47, 0x65, 0x61, 0x72,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x0b, 0x64, 0x72, 0x69,
+	0x76, 0x65, 0x5f, 0x67, 0x65, 0x61, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0a,
+	0x2e, 0x44, 0x72, 0x69, 0x76, 0x65, 0x47, 0x65, 0x61, 0x72, 0x52, 0x0a, 0x64, 0x72, 0x69, 0x76,
+	0x65, 0x47, 0x65, 0x61, 0x72, 0x73, 0x22, 0x2c, 0x0a, 0x06, 0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
+	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x22, 0x13, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x67, 0x69, 0x6e,
+	0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x37, 0x0a, 0x12, 0x47, 0x65, 0x74,
+	0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x21, 0x0a, 0x07, 0x65, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x07, 0x2e, 0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x52, 0x07, 0x65, 0x6e, 0x67, 0x69, 0x6e,
+	0x65, 0x73, 0x22, 0x2d, 0x0a, 0x07, 0x47, 0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x12, 0x0e, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x22, 0x15, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x47, 0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x65,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3f, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x47,
+	0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x27, 0x0a, 0x0a, 0x67, 0x65, 0x61, 0x72, 0x5f, 0x62, 0x6f, 0x78, 0x65, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x08, 0x2e, 0x47, 0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x52, 0x09,
+	0x67, 0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x22, 0x63, 0x0a, 0x05, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02,
+	0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x62, 0x72, 0x61, 0x6e, 0x64, 0x5f,
+	0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x07, 0x62, 0x72, 0x61, 0x6e, 0x64, 0x49,
+	0x64, 0x12, 0x1b, 0x0a, 0x09, 0x70, 0x61, 0x72, 0x65, 0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x08, 0x70, 0x61, 0x72, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x22, 0x12,
+	0x0a, 0x10, 0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0x33, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1e, 0x0a, 0x06, 0x6d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x52,
+	0x06, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x22, 0xd7, 0x03, 0x0a, 0x18, 0x43, 0x72, 0x65, 0x61,
 	0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x62, 0x72, 0x61, 0x6e, 0x64, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x04, 0x52, 0x05, 0x62, 0x72, 0x61, 0x6e, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x6d, 0x6f,
@@ -266,16 +1331,52 @@ var file_internal_domain_proto_auto_market_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f,
 	0x6e, 0x22, 0x2b, 0x0a, 0x19, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69,
 	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x32, 0x78,
-	0x0a, 0x0a, 0x41, 0x75, 0x74, 0x6f, 0x4d, 0x61, 0x72, 0x6b, 0x65, 0x74, 0x12, 0x6a, 0x0a, 0x11,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x32, 0xbb,
+	0x05, 0x0a, 0x0a, 0x41, 0x75, 0x74, 0x6f, 0x4d, 0x61, 0x72, 0x6b, 0x65, 0x74, 0x12, 0x6a, 0x0a,
+	0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x12, 0x19, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e,
 	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x12, 0x19, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1e, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x18,
-	0x3a, 0x01, 0x2a, 0x22, 0x13, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x75, 0x62,
-	0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x08, 0x5a, 0x06, 0x2e, 0x3b, 0x67, 0x72,
-	0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1e, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x18, 0x3a, 0x01, 0x2a, 0x22, 0x13, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x75,
+	0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x4a, 0x0a, 0x09, 0x47, 0x65, 0x74,
+	0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x12, 0x11, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6c, 0x6f,
+	0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x47, 0x65, 0x74, 0x43,
+	0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x16, 0x82,
+	0xd3, 0xe4, 0x93, 0x02, 0x10, 0x12, 0x0e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x63,
+	0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x12, 0x4e, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x67, 0x69,
+	0x6e, 0x65, 0x73, 0x12, 0x12, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x67,
+	0x69, 0x6e, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x17, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x11, 0x12, 0x0f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e,
+	0x67, 0x69, 0x6e, 0x65, 0x73, 0x12, 0x57, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x47, 0x65, 0x61, 0x72,
+	0x42, 0x6f, 0x78, 0x65, 0x73, 0x12, 0x14, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x65, 0x61, 0x72, 0x42,
+	0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x47, 0x65,
+	0x74, 0x47, 0x65, 0x61, 0x72, 0x42, 0x6f, 0x78, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x1a, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x14, 0x12, 0x12, 0x2f, 0x61, 0x70, 0x69,
+	0x2f, 0x76, 0x31, 0x2f, 0x67, 0x65, 0x61, 0x72, 0x2d, 0x62, 0x6f, 0x78, 0x65, 0x73, 0x12, 0x57,
+	0x0a, 0x0c, 0x47, 0x65, 0x74, 0x42, 0x6f, 0x64, 0x79, 0x54, 0x79, 0x70, 0x65, 0x73, 0x12, 0x14,
+	0x2e, 0x47, 0x65, 0x74, 0x42, 0x6f, 0x64, 0x79, 0x54, 0x79, 0x70, 0x65, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x6f, 0x64, 0x79, 0x54, 0x79,
+	0x70, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1a, 0x82, 0xd3, 0xe4,
+	0x93, 0x02, 0x14, 0x12, 0x12, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x6f, 0x64,
+	0x79, 0x2d, 0x74, 0x79, 0x70, 0x65, 0x73, 0x12, 0x4a, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x42, 0x72,
+	0x61, 0x6e, 0x64, 0x73, 0x12, 0x11, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x72, 0x61, 0x6e, 0x64, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x72, 0x61,
+	0x6e, 0x64, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x16, 0x82, 0xd3, 0xe4,
+	0x93, 0x02, 0x10, 0x12, 0x0e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x72, 0x61,
+	0x6e, 0x64, 0x73, 0x12, 0x5b, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x44, 0x72, 0x69, 0x76, 0x65, 0x47,
+	0x65, 0x61, 0x72, 0x73, 0x12, 0x15, 0x2e, 0x47, 0x65, 0x74, 0x44, 0x72, 0x69, 0x76, 0x65, 0x47,
+	0x65, 0x61, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x47, 0x65,
+	0x74, 0x44, 0x72, 0x69, 0x76, 0x65, 0x47, 0x65, 0x61, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x1b, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x15, 0x12, 0x13, 0x2f, 0x61, 0x70,
+	0x69, 0x2f, 0x76, 0x31, 0x2f, 0x64, 0x72, 0x69, 0x76, 0x65, 0x2d, 0x67, 0x65, 0x61, 0x72, 0x73,
+	0x12, 0x4a, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x12, 0x11, 0x2e,
+	0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x12, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x16, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x10, 0x12, 0x0e, 0x2f, 0x61,
+	0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x42, 0x08, 0x5a, 0x06,
+	0x2e, 0x3b, 0x67, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -290,19 +1391,61 @@ func file_internal_domain_proto_auto_market_proto_rawDescGZIP() []byte {
 	return file_internal_domain_proto_auto_market_proto_rawDescData
 }
 
-var file_internal_domain_proto_auto_market_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_internal_domain_proto_auto_market_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_internal_domain_proto_auto_market_proto_goTypes = []interface{}{
-	(*CreatePublicationRequest)(nil),  // 0: CreatePublicationRequest
-	(*CreatePublicationResponse)(nil), // 1: CreatePublicationResponse
+	(*BodyType)(nil),                  // 0: BodyType
+	(*GetBodyTypesRequest)(nil),       // 1: GetBodyTypesRequest
+	(*GetBodyTypesResponse)(nil),      // 2: GetBodyTypesResponse
+	(*Brand)(nil),                     // 3: Brand
+	(*GetBrandsRequest)(nil),          // 4: GetBrandsRequest
+	(*GetBrandsResponse)(nil),         // 5: GetBrandsResponse
+	(*Color)(nil),                     // 6: Color
+	(*GetColorsRequest)(nil),          // 7: GetColorsRequest
+	(*GetColorsResponse)(nil),         // 8: GetColorsResponse
+	(*DriveGear)(nil),                 // 9: DriveGear
+	(*GetDriveGearsRequest)(nil),      // 10: GetDriveGearsRequest
+	(*GetDriveGearsResponse)(nil),     // 11: GetDriveGearsResponse
+	(*Engine)(nil),                    // 12: Engine
+	(*GetEnginesRequest)(nil),         // 13: GetEnginesRequest
+	(*GetEnginesResponse)(nil),        // 14: GetEnginesResponse
+	(*GearBox)(nil),                   // 15: GearBox
+	(*GetGearBoxesRequest)(nil),       // 16: GetGearBoxesRequest
+	(*GetGearBoxesResponse)(nil),      // 17: GetGearBoxesResponse
+	(*Model)(nil),                     // 18: Model
+	(*GetModelsRequest)(nil),          // 19: GetModelsRequest
+	(*GetModelsResponse)(nil),         // 20: GetModelsResponse
+	(*CreatePublicationRequest)(nil),  // 21: CreatePublicationRequest
+	(*CreatePublicationResponse)(nil), // 22: CreatePublicationResponse
 }
 var file_internal_domain_proto_auto_market_proto_depIdxs = []int32{
-	0, // 0: AutoMarket.CreatePublication:input_type -> CreatePublicationRequest
-	1, // 1: AutoMarket.CreatePublication:output_type -> CreatePublicationResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: GetBodyTypesResponse.body_types:type_name -> BodyType
+	3,  // 1: GetBrandsResponse.brands:type_name -> Brand
+	6,  // 2: GetColorsResponse.colors:type_name -> Color
+	9,  // 3: GetDriveGearsResponse.drive_gears:type_name -> DriveGear
+	12, // 4: GetEnginesResponse.engines:type_name -> Engine
+	15, // 5: GetGearBoxesResponse.gear_boxes:type_name -> GearBox
+	18, // 6: GetModelsResponse.models:type_name -> Model
+	21, // 7: AutoMarket.CreatePublication:input_type -> CreatePublicationRequest
+	7,  // 8: AutoMarket.GetColors:input_type -> GetColorsRequest
+	13, // 9: AutoMarket.GetEngines:input_type -> GetEnginesRequest
+	16, // 10: AutoMarket.GetGearBoxes:input_type -> GetGearBoxesRequest
+	1,  // 11: AutoMarket.GetBodyTypes:input_type -> GetBodyTypesRequest
+	4,  // 12: AutoMarket.GetBrands:input_type -> GetBrandsRequest
+	10, // 13: AutoMarket.GetDriveGears:input_type -> GetDriveGearsRequest
+	19, // 14: AutoMarket.GetModels:input_type -> GetModelsRequest
+	22, // 15: AutoMarket.CreatePublication:output_type -> CreatePublicationResponse
+	8,  // 16: AutoMarket.GetColors:output_type -> GetColorsResponse
+	14, // 17: AutoMarket.GetEngines:output_type -> GetEnginesResponse
+	17, // 18: AutoMarket.GetGearBoxes:output_type -> GetGearBoxesResponse
+	2,  // 19: AutoMarket.GetBodyTypes:output_type -> GetBodyTypesResponse
+	5,  // 20: AutoMarket.GetBrands:output_type -> GetBrandsResponse
+	11, // 21: AutoMarket.GetDriveGears:output_type -> GetDriveGearsResponse
+	20, // 22: AutoMarket.GetModels:output_type -> GetModelsResponse
+	15, // [15:23] is the sub-list for method output_type
+	7,  // [7:15] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_internal_domain_proto_auto_market_proto_init() }
@@ -312,7 +1455,7 @@ func file_internal_domain_proto_auto_market_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_internal_domain_proto_auto_market_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreatePublicationRequest); i {
+			switch v := v.(*BodyType); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -324,6 +1467,258 @@ func file_internal_domain_proto_auto_market_proto_init() {
 			}
 		}
 		file_internal_domain_proto_auto_market_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBodyTypesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBodyTypesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Brand); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBrandsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBrandsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Color); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetColorsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetColorsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DriveGear); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetDriveGearsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetDriveGearsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Engine); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetEnginesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetEnginesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GearBox); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetGearBoxesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetGearBoxesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Model); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetModelsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetModelsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreatePublicationRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_internal_domain_proto_auto_market_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreatePublicationResponse); i {
 			case 0:
 				return &v.state
@@ -342,7 +1737,7 @@ func file_internal_domain_proto_auto_market_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_internal_domain_proto_auto_market_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

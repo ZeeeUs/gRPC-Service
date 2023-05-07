@@ -3,6 +3,86 @@ option go_package = ".;grpc";
 
 import "google/api/annotations.proto";
 
+message BodyType {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message GetBodyTypesRequest{};
+
+message GetBodyTypesResponse{
+  repeated BodyType body_types = 1;
+}
+
+message Brand {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message GetBrandsRequest{};
+
+message GetBrandsResponse{
+  repeated Brand brands = 1;
+}
+
+message Color {
+  uint64 id = 1;
+  string name = 2;
+  string hex_code = 3;
+};
+
+message GetColorsRequest{}
+
+message GetColorsResponse{
+  repeated Color colors = 1;
+}
+
+message DriveGear {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message GetDriveGearsRequest{};
+
+message GetDriveGearsResponse{
+  repeated DriveGear drive_gears = 1;
+}
+
+message Engine {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message GetEnginesRequest{};
+
+message GetEnginesResponse{
+  repeated Engine engines = 1;
+}
+
+message GearBox {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message GetGearBoxesRequest{};
+
+message GetGearBoxesResponse{
+  repeated GearBox gear_boxes = 1;
+}
+
+message Model {
+  uint64 id = 1;
+  string name = 2;
+  uint64 brand_id = 3;
+  uint64 parent_id = 4;
+}
+
+message GetModelsRequest{};
+
+message GetModelsResponse{
+  repeated Model models = 1;
+}
+
 message CreatePublicationRequest {
   uint64 brand = 1;
   uint64 model = 2;
@@ -30,6 +110,48 @@ service AutoMarket {
     option(google.api.http) = {
       post: "/api/v1/publication",
       body: "*"
+    };
+  }
+
+  rpc GetColors(GetColorsRequest) returns(GetColorsResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/colors"
+    };
+  }
+
+  rpc GetEngines(GetEnginesRequest) returns(GetEnginesResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/engines"
+    };
+  }
+
+  rpc GetGearBoxes(GetGearBoxesRequest) returns(GetGearBoxesResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/gear-boxes"
+    };
+  }
+
+  rpc GetBodyTypes(GetBodyTypesRequest) returns(GetBodyTypesResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/body-types"
+    };
+  }
+
+  rpc GetBrands(GetBrandsRequest) returns(GetBrandsResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/brands"
+    };
+  }
+
+  rpc GetDriveGears(GetDriveGearsRequest) returns(GetDriveGearsResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/drive-gears"
+    };
+  }
+
+  rpc GetModels(GetModelsRequest) returns(GetModelsResponse) {
+    option(google.api.http) = {
+      get: "/api/v1/models"
     };
   }
 }

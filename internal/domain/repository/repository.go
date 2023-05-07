@@ -13,6 +13,7 @@ import (
 
 type AutoMarketRepo interface {
 	CreatePublication(ctx context.Context, userID uint64, publication models.Publication) (uint64, error)
+	GetColors(ctx context.Context) ([]models.Color, error)
 }
 
 type autoMarketRepo struct {
@@ -81,6 +82,35 @@ func (am *autoMarketRepo) CreatePublication(ctx context.Context, userID uint64, 
 	}
 
 	return id, nil
+}
+
+func (am *autoMarketRepo) GetColors(ctx context.Context) ([]models.Color, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name, hex_code FROM public.color"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get colors query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var colors = make([]models.Color, 0)
+	for rows.Next() {
+		var color models.Color
+		if err = rows.Scan(&color.ID, &color.Name, &color.HexCode); err != nil {
+			return nil, errors.Wrap(err, "failed to scan colors")
+		}
+		colors = append(colors, color)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return colors, nil
 }
 
 func New(log zerolog.Logger, conn *pgxpool.Pool) AutoMarketRepo {

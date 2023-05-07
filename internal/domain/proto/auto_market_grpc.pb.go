@@ -20,6 +20,13 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	AutoMarket_CreatePublication_FullMethodName = "/AutoMarket/CreatePublication"
+	AutoMarket_GetColors_FullMethodName         = "/AutoMarket/GetColors"
+	AutoMarket_GetEngines_FullMethodName        = "/AutoMarket/GetEngines"
+	AutoMarket_GetGearBoxes_FullMethodName      = "/AutoMarket/GetGearBoxes"
+	AutoMarket_GetBodyTypes_FullMethodName      = "/AutoMarket/GetBodyTypes"
+	AutoMarket_GetBrands_FullMethodName         = "/AutoMarket/GetBrands"
+	AutoMarket_GetDriveGears_FullMethodName     = "/AutoMarket/GetDriveGears"
+	AutoMarket_GetModels_FullMethodName         = "/AutoMarket/GetModels"
 )
 
 // AutoMarketClient is the client API for AutoMarket service.
@@ -27,6 +34,13 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AutoMarketClient interface {
 	CreatePublication(ctx context.Context, in *CreatePublicationRequest, opts ...grpc.CallOption) (*CreatePublicationResponse, error)
+	GetColors(ctx context.Context, in *GetColorsRequest, opts ...grpc.CallOption) (*GetColorsResponse, error)
+	GetEngines(ctx context.Context, in *GetEnginesRequest, opts ...grpc.CallOption) (*GetEnginesResponse, error)
+	GetGearBoxes(ctx context.Context, in *GetGearBoxesRequest, opts ...grpc.CallOption) (*GetGearBoxesResponse, error)
+	GetBodyTypes(ctx context.Context, in *GetBodyTypesRequest, opts ...grpc.CallOption) (*GetBodyTypesResponse, error)
+	GetBrands(ctx context.Context, in *GetBrandsRequest, opts ...grpc.CallOption) (*GetBrandsResponse, error)
+	GetDriveGears(ctx context.Context, in *GetDriveGearsRequest, opts ...grpc.CallOption) (*GetDriveGearsResponse, error)
+	GetModels(ctx context.Context, in *GetModelsRequest, opts ...grpc.CallOption) (*GetModelsResponse, error)
 }
 
 type autoMarketClient struct {
@@ -46,11 +60,81 @@ func (c *autoMarketClient) CreatePublication(ctx context.Context, in *CreatePubl
 	return out, nil
 }
 
+func (c *autoMarketClient) GetColors(ctx context.Context, in *GetColorsRequest, opts ...grpc.CallOption) (*GetColorsResponse, error) {
+	out := new(GetColorsResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetColors_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetEngines(ctx context.Context, in *GetEnginesRequest, opts ...grpc.CallOption) (*GetEnginesResponse, error) {
+	out := new(GetEnginesResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetEngines_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetGearBoxes(ctx context.Context, in *GetGearBoxesRequest, opts ...grpc.CallOption) (*GetGearBoxesResponse, error) {
+	out := new(GetGearBoxesResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetGearBoxes_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetBodyTypes(ctx context.Context, in *GetBodyTypesRequest, opts ...grpc.CallOption) (*GetBodyTypesResponse, error) {
+	out := new(GetBodyTypesResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetBodyTypes_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetBrands(ctx context.Context, in *GetBrandsRequest, opts ...grpc.CallOption) (*GetBrandsResponse, error) {
+	out := new(GetBrandsResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetBrands_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetDriveGears(ctx context.Context, in *GetDriveGearsRequest, opts ...grpc.CallOption) (*GetDriveGearsResponse, error) {
+	out := new(GetDriveGearsResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetDriveGears_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *autoMarketClient) GetModels(ctx context.Context, in *GetModelsRequest, opts ...grpc.CallOption) (*GetModelsResponse, error) {
+	out := new(GetModelsResponse)
+	err := c.cc.Invoke(ctx, AutoMarket_GetModels_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AutoMarketServer is the server API for AutoMarket service.
 // All implementations must embed UnimplementedAutoMarketServer
 // for forward compatibility
 type AutoMarketServer interface {
 	CreatePublication(context.Context, *CreatePublicationRequest) (*CreatePublicationResponse, error)
+	GetColors(context.Context, *GetColorsRequest) (*GetColorsResponse, error)
+	GetEngines(context.Context, *GetEnginesRequest) (*GetEnginesResponse, error)
+	GetGearBoxes(context.Context, *GetGearBoxesRequest) (*GetGearBoxesResponse, error)
+	GetBodyTypes(context.Context, *GetBodyTypesRequest) (*GetBodyTypesResponse, error)
+	GetBrands(context.Context, *GetBrandsRequest) (*GetBrandsResponse, error)
+	GetDriveGears(context.Context, *GetDriveGearsRequest) (*GetDriveGearsResponse, error)
+	GetModels(context.Context, *GetModelsRequest) (*GetModelsResponse, error)
 	mustEmbedUnimplementedAutoMarketServer()
 }
 
@@ -60,6 +144,27 @@ type UnimplementedAutoMarketServer struct {
 
 func (UnimplementedAutoMarketServer) CreatePublication(context.Context, *CreatePublicationRequest) (*CreatePublicationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePublication not implemented")
+}
+func (UnimplementedAutoMarketServer) GetColors(context.Context, *GetColorsRequest) (*GetColorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetColors not implemented")
+}
+func (UnimplementedAutoMarketServer) GetEngines(context.Context, *GetEnginesRequest) (*GetEnginesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEngines not implemented")
+}
+func (UnimplementedAutoMarketServer) GetGearBoxes(context.Context, *GetGearBoxesRequest) (*GetGearBoxesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGearBoxes not implemented")
+}
+func (UnimplementedAutoMarketServer) GetBodyTypes(context.Context, *GetBodyTypesRequest) (*GetBodyTypesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBodyTypes not implemented")
+}
+func (UnimplementedAutoMarketServer) GetBrands(context.Context, *GetBrandsRequest) (*GetBrandsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBrands not implemented")
+}
+func (UnimplementedAutoMarketServer) GetDriveGears(context.Context, *GetDriveGearsRequest) (*GetDriveGearsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDriveGears not implemented")
+}
+func (UnimplementedAutoMarketServer) GetModels(context.Context, *GetModelsRequest) (*GetModelsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetModels not implemented")
 }
 func (UnimplementedAutoMarketServer) mustEmbedUnimplementedAutoMarketServer() {}
 
@@ -92,6 +197,132 @@ func _AutoMarket_CreatePublication_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AutoMarket_GetColors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetColors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetColors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetColors(ctx, req.(*GetColorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetEngines_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEnginesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetEngines(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetEngines_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetEngines(ctx, req.(*GetEnginesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetGearBoxes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGearBoxesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetGearBoxes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetGearBoxes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetGearBoxes(ctx, req.(*GetGearBoxesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetBodyTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBodyTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetBodyTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetBodyTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetBodyTypes(ctx, req.(*GetBodyTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetBrands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBrandsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetBrands(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetBrands_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetBrands(ctx, req.(*GetBrandsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetDriveGears_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDriveGearsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetDriveGears(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetDriveGears_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetDriveGears(ctx, req.(*GetDriveGearsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AutoMarket_GetModels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModelsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AutoMarketServer).GetModels(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AutoMarket_GetModels_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AutoMarketServer).GetModels(ctx, req.(*GetModelsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AutoMarket_ServiceDesc is the grpc.ServiceDesc for AutoMarket service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -102,6 +333,34 @@ var AutoMarket_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreatePublication",
 			Handler:    _AutoMarket_CreatePublication_Handler,
+		},
+		{
+			MethodName: "GetColors",
+			Handler:    _AutoMarket_GetColors_Handler,
+		},
+		{
+			MethodName: "GetEngines",
+			Handler:    _AutoMarket_GetEngines_Handler,
+		},
+		{
+			MethodName: "GetGearBoxes",
+			Handler:    _AutoMarket_GetGearBoxes_Handler,
+		},
+		{
+			MethodName: "GetBodyTypes",
+			Handler:    _AutoMarket_GetBodyTypes_Handler,
+		},
+		{
+			MethodName: "GetBrands",
+			Handler:    _AutoMarket_GetBrands_Handler,
+		},
+		{
+			MethodName: "GetDriveGears",
+			Handler:    _AutoMarket_GetDriveGears_Handler,
+		},
+		{
+			MethodName: "GetModels",
+			Handler:    _AutoMarket_GetModels_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -19,3 +19,9 @@ type Publication struct {
 	EnginePower    uint32    `json:"engine_power"`
 	Description    string    `json:"description,omitempty"`
 }
+
+type Color struct {
+	ID      uint64 `json:"id"`
+	Name    string `json:"name"`
+	HexCode string `json:"hex_code"`
+}

@@ -49,9 +49,28 @@ func (am *AutoMarket) CreatePublication(ctx context.Context, req *pb.CreatePubli
 	id, err := am.autoMarketService.CreatePublication(ctx, userID, newPublication)
 	if err != nil {
 		am.log.Error().Err(err).Msg("failed to create new account")
+		return nil, err
 	}
 
 	return &pb.CreatePublicationResponse{Id: id}, nil
+}
+
+func (am *AutoMarket) GetColors(ctx context.Context, _ *pb.GetColorsRequest) (*pb.GetColorsResponse, error) {
+	colors, err := am.autoMarketService.GetColors(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	resp := make([]*pb.Color, 0)
+	for _, color := range colors {
+		resp = append(resp, &pb.Color{
+			Id:      color.ID,
+			Name:    color.Name,
+			HexCode: color.HexCode,
+		})
+	}
+
+	return &pb.GetColorsResponse{Colors: resp}, nil
 }
 
 func New(log zerolog.Logger, autoMarketService service.AutoMarketService) *AutoMarket {
