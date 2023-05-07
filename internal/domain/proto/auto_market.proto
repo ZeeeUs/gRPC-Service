@@ -3,20 +3,24 @@ option go_package = ".;grpc";
 
 import "google/api/annotations.proto";
 
-message CreateAccountRequest {
-  string name = 1;
-  string email = 2;
-  uint32 age = 3;
+message CreatePublicationRequest {
+  uint64 brand = 1;
+  uint64 model = 2;
+  string vin = 3;
+  string production_year = 4;
+  uint64 mileage = 5;
+  uint32 pics_count = 6;
+  uint32 owner_count = 7;
 }
 
-message CreateAccountResponse {
-  int64 id = 1;
+message CreatePublicationResponse {
+  uint64 id = 1;
 }
 
 service AutoMarket {
-  rpc CreateAccount(CreateAccountRequest) returns(CreateAccountResponse) {
+  rpc CreatePublication(CreatePublicationRequest) returns(CreatePublicationResponse) {
     option(google.api.http) = {
-      post: "/sign-on",
+      post: "/api/v1/publication",
       body: "*"
     };
   }

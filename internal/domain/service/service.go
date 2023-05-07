@@ -9,7 +9,7 @@ import (
 )
 
 type AutoMarketService interface {
-	CreateAccount(ctx context.Context, account models.Account) (int64, error)
+	CreatePublication(ctx context.Context, userID uint64, newPublication models.Publication) (uint64, error)
 }
 
 type autoMarketService struct {
@@ -17,8 +17,8 @@ type autoMarketService struct {
 	log            zerolog.Logger
 }
 
-func (am *autoMarketService) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
-	return am.autoMarketRepo.CreateAccount(ctx, account)
+func (am *autoMarketService) CreatePublication(ctx context.Context, userID uint64, publication models.Publication) (uint64, error) {
+	return am.autoMarketRepo.CreatePublication(ctx, userID, publication)
 }
 
 func New(log zerolog.Logger, autoMarketRepo repository.AutoMarketRepo) AutoMarketService {

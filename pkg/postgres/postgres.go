@@ -26,6 +26,10 @@ func NewPoolConnection(
 ) (*pgxpool.Pool, error) {
 	// TODO add logger
 	addr, port, err := parseDbAddressAndPort(dbAddr)
+	if err != nil {
+		return nil, err
+	}
+
 	cfg, err := pgxpool.ParseConfig(fmt.Sprintf(
 		"host=%s port=%d dbname=%s sslmode=disable user=%s password=%s pool_max_conns=%d",
 		addr, port, db, user, password, maxConn,

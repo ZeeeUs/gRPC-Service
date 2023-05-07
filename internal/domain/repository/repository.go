@@ -12,7 +12,7 @@ import (
 )
 
 type AutoMarketRepo interface {
-	CreateAccount(ctx context.Context, account models.Account) (int64, error)
+	CreatePublication(ctx context.Context, userID uint64, publication models.Publication) (uint64, error)
 }
 
 type autoMarketRepo struct {
@@ -20,14 +20,26 @@ type autoMarketRepo struct {
 	log  zerolog.Logger
 }
 
-func (am *autoMarketRepo) CreateAccount(ctx context.Context, account models.Account) (int64, error) {
-	var id int64
+func (am *autoMarketRepo) CreatePublication(ctx context.Context, userID uint64, publication models.Publication) (uint64, error) {
+	var id uint64
 
 	ctxDb, cancel := context.WithTimeout(ctx, 2*time.Minute)
 	defer cancel()
 
-	query := "INSERT INTO public.users (name, age, email) VALUES ($1, $2, $3) RETURNING id"
-	err := am.conn.QueryRow(ctxDb, query, account.Name, account.Age, account.Email).Scan(&id)
+	query := `INSERT INTO public.publication (user_id, brand, model, vin, production_year, mileage, pics_count, owner_count) 
+				VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`
+	err := am.conn.QueryRow(
+		ctxDb,
+		query,
+		userID,
+		publication.Brand,
+		publication.Model,
+		publication.Vin,
+		publication.ProductionYear,
+		publication.Mileage,
+		publication.PicsCount,
+		publication.OwnerCount,
+	).Scan(&id)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
 			return 0, errors.Wrap(err, "insert new account query timeout")

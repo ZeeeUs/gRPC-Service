@@ -1,5 +1,6 @@
 generate_server:
-	protoc \
+	@echo "Generating Go files from Protobuf definitions..."
+	@protoc \
 	--go_out=. \
 	--go_opt=paths=source_relative \
 	--go-grpc_out=. \
@@ -7,7 +8,8 @@ generate_server:
 	internal/domain/proto/auto_market.proto
 
 generate_gateway:
-	protoc -I . \
+	@echo "Generating Gateway files from Protobuf definitions..."
+	@protoc -I . \
     --grpc-gateway_out=. \
     --grpc-gateway_opt logtostderr=true \
     --grpc-gateway_opt paths=source_relative \

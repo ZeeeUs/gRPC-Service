@@ -2,6 +2,7 @@ package grpc
 
 import (
 	"context"
+	"time"
 
 	"github.com/rs/zerolog"
 
@@ -16,19 +17,33 @@ type AutoMarket struct {
 	log               zerolog.Logger
 }
 
-func (am *AutoMarket) CreateAccount(ctx context.Context, req *pb.CreateAccountRequest) (*pb.CreateAccountResponse, error) {
-	newAccount := models.Account{
-		Name:  req.Name,
-		Age:   req.Age,
-		Email: req.Email,
+func (am *AutoMarket) CreatePublication(ctx context.Context, req *pb.CreatePublicationRequest) (*pb.CreatePublicationResponse, error) {
+	layout := "02-01-2006"
+	date, err := time.Parse(layout, req.ProductionYear)
+	if err != nil {
+		am.log.Error().Err(err).Msg("failed to convert string to date")
+		return nil, err
 	}
 
-	id, err := am.autoMarketService.CreateAccount(ctx, newAccount)
+	newPublication := models.Publication{
+		Brand:          req.Brand,
+		Model:          req.Model,
+		Vin:            req.Vin,
+		ProductionYear: date,
+		Mileage:        req.Mileage,
+		PicsCount:      req.PicsCount,
+		OwnerCount:     req.OwnerCount,
+	}
+
+	// TODO добавить поддержку userID
+	userID := uint64(55)
+
+	id, err := am.autoMarketService.CreatePublication(ctx, userID, newPublication)
 	if err != nil {
 		am.log.Error().Err(err).Msg("failed to create new account")
 	}
 
-	return &pb.CreateAccountResponse{Id: id}, nil
+	return &pb.CreatePublicationResponse{Id: id}, nil
 }
 
 func New(log zerolog.Logger, autoMarketService service.AutoMarketService) *AutoMarket {
