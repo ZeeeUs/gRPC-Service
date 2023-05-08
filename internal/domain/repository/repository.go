@@ -42,7 +42,7 @@ func (am *autoMarketRepo) CreatePublication(ctx context.Context, userID uint64, 
 		_ = tx.Rollback(ctx)
 	}()
 
-	publQuery := `INSERT INTO publication (brand, model, vin, production_year, mileage, pics_count, owner_count, description, is_active, created_at)
+	publQuery := `INSERT INTO publications (brand, model, vin, production_year, mileage, pics_count, owner_count, description, is_active, created_at)
 		VALUES ($1,$2,$3,$4,$5,$6,$7,$8,true,now()) RETURNING id`
 	err = tx.QueryRow(
 		ctxDb,
@@ -63,7 +63,7 @@ func (am *autoMarketRepo) CreatePublication(ctx context.Context, userID uint64, 
 		return 0, err
 	}
 
-	charcQuery := `INSERT INTO car_characteristic (publication_id, body_type, gear_box, engine, engine_power, engine_capacity, drive_gear, color) 
+	charcQuery := `INSERT INTO car_characteristics (publication_id, body_type, gear_box, engine, engine_power, engine_capacity, drive_gear, color) 
 					VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`
 	_, err = tx.Exec(
 		ctxDb,
@@ -94,7 +94,7 @@ func (am *autoMarketRepo) GetColors(ctx context.Context) ([]models.Color, error)
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name, hex_code FROM public.color"
+	query := "SELECT id, name, hex_code FROM public.colors"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -123,7 +123,7 @@ func (am *autoMarketRepo) GetEngines(ctx context.Context) ([]models.Engine, erro
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name FROM public.engine"
+	query := "SELECT id, name FROM public.engines"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -152,7 +152,7 @@ func (am *autoMarketRepo) GetGearBoxes(ctx context.Context) ([]models.GearBox, e
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name FROM public.gear_box"
+	query := "SELECT id, name FROM public.gear_boxes"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -181,7 +181,7 @@ func (am *autoMarketRepo) GetBodyTypes(ctx context.Context) ([]models.BodyType, 
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name FROM public.body_type"
+	query := "SELECT id, name FROM public.body_types"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -210,7 +210,7 @@ func (am *autoMarketRepo) GetBrands(ctx context.Context) ([]models.Brand, error)
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name FROM public.brand"
+	query := "SELECT id, name FROM public.brands"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -239,7 +239,7 @@ func (am *autoMarketRepo) GetDriveGears(ctx context.Context) ([]models.DriveGear
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name FROM public.drive_gear"
+	query := "SELECT id, name FROM public.drive_gears"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -268,7 +268,7 @@ func (am *autoMarketRepo) GetModels(ctx context.Context) ([]models.Model, error)
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
-	query := "SELECT id, name, brand_id, parent_id FROM public.model"
+	query := "SELECT id, name, brand_id, parent_id FROM public.models"
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
