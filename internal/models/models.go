@@ -25,3 +25,35 @@ type Color struct {
 	Name    string `json:"name"`
 	HexCode string `json:"hex_code"`
 }
+
+type Engine struct {
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
+}
+
+type GearBox struct {
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
+}
+
+type BodyType struct {
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
+}
+
+type Brand struct {
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
+}
+
+type DriveGear struct {
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
+}
+
+type Model struct {
+	ID       uint64 `json:"id"`
+	Name     string `json:"name"`
+	BrandID  uint64 `json:"brand_id"`
+	ParentID uint64 `json:"parent_id"`
+}

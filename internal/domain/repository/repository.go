@@ -14,6 +14,12 @@ import (
 type AutoMarketRepo interface {
 	CreatePublication(ctx context.Context, userID uint64, publication models.Publication) (uint64, error)
 	GetColors(ctx context.Context) ([]models.Color, error)
+	GetEngines(ctx context.Context) ([]models.Engine, error)
+	GetGearBoxes(ctx context.Context) ([]models.GearBox, error)
+	GetBodyTypes(ctx context.Context) ([]models.BodyType, error)
+	GetBrands(ctx context.Context) ([]models.Brand, error)
+	GetDriveGears(ctx context.Context) ([]models.DriveGear, error)
+	GetModels(ctx context.Context) ([]models.Model, error)
 }
 
 type autoMarketRepo struct {
@@ -111,6 +117,180 @@ func (am *autoMarketRepo) GetColors(ctx context.Context) ([]models.Color, error)
 	}
 
 	return colors, nil
+}
+
+func (am *autoMarketRepo) GetEngines(ctx context.Context) ([]models.Engine, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name FROM public.engine"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get engines query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var engines = make([]models.Engine, 0)
+	for rows.Next() {
+		var engine models.Engine
+		if err = rows.Scan(&engine.ID, &engine.Name); err != nil {
+			return nil, errors.Wrap(err, "failed to scan engines")
+		}
+		engines = append(engines, engine)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return engines, nil
+}
+
+func (am *autoMarketRepo) GetGearBoxes(ctx context.Context) ([]models.GearBox, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name FROM public.gear_box"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get gear boxes query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var gerBoxes = make([]models.GearBox, 0)
+	for rows.Next() {
+		var gearBox models.GearBox
+		if err = rows.Scan(&gearBox.ID, &gearBox.Name); err != nil {
+			return nil, errors.Wrap(err, "failed to scan gear boxes")
+		}
+		gerBoxes = append(gerBoxes, gearBox)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return gerBoxes, nil
+}
+
+func (am *autoMarketRepo) GetBodyTypes(ctx context.Context) ([]models.BodyType, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name FROM public.body_type"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get body types query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var bodyTypes = make([]models.BodyType, 0)
+	for rows.Next() {
+		var bodyType models.BodyType
+		if err = rows.Scan(&bodyType.ID, &bodyType.Name); err != nil {
+			return nil, errors.Wrap(err, "failed to body types")
+		}
+		bodyTypes = append(bodyTypes, bodyType)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return bodyTypes, nil
+}
+
+func (am *autoMarketRepo) GetBrands(ctx context.Context) ([]models.Brand, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name FROM public.brand"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get brands query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var brands = make([]models.Brand, 0)
+	for rows.Next() {
+		var brand models.Brand
+		if err = rows.Scan(&brand.ID, &brand.Name); err != nil {
+			return nil, errors.Wrap(err, "failed to scan brands")
+		}
+		brands = append(brands, brand)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return brands, nil
+}
+
+func (am *autoMarketRepo) GetDriveGears(ctx context.Context) ([]models.DriveGear, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name FROM public.drive_gear"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get drive gears query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var driveGears = make([]models.DriveGear, 0)
+	for rows.Next() {
+		var driveGear models.DriveGear
+		if err = rows.Scan(&driveGear.ID, &driveGear.Name); err != nil {
+			return nil, errors.Wrap(err, "failed to scan drive gears")
+		}
+		driveGears = append(driveGears, driveGear)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return driveGears, nil
+}
+
+func (am *autoMarketRepo) GetModels(ctx context.Context) ([]models.Model, error) {
+	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
+	defer cancel()
+
+	query := "SELECT id, name, brand_id, parent_id FROM public.model"
+	rows, err := am.conn.Query(ctxDb, query)
+	if err != nil {
+		if errors.Is(err, context.Canceled) {
+			return nil, errors.Wrap(err, "get models query timeout")
+		}
+		return nil, err
+	}
+	defer rows.Close()
+
+	var carModels = make([]models.Model, 0)
+	for rows.Next() {
+		var carModel models.Model
+		if err = rows.Scan(&carModel.ID, &carModel.Name, &carModel.BrandID, &carModel.ParentID); err != nil {
+			return nil, errors.Wrap(err, "failed to scan models")
+		}
+		carModels = append(carModels, carModel)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return carModels, nil
 }
 
 func New(log zerolog.Logger, conn *pgxpool.Pool) AutoMarketRepo {
