@@ -158,8 +158,8 @@ func (am *AutoMarket) GetDriveGears(ctx context.Context, _ *pb.GetDriveGearsRequ
 	return &pb.GetDriveGearsResponse{DriveGears: resp}, nil
 }
 
-func (am *AutoMarket) GetModels(ctx context.Context, _ *pb.GetModelsRequest) (*pb.GetModelsResponse, error) {
-	carModels, err := am.autoMarketService.GetModels(ctx)
+func (am *AutoMarket) GetModels(ctx context.Context, req *pb.GetModelsRequest) (*pb.GetModelsResponse, error) {
+	carModels, err := am.autoMarketService.GetModels(ctx, req.GetBrandId())
 	if err != nil {
 		return nil, err
 	}

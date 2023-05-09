@@ -17,7 +17,7 @@ type AutoMarketService interface {
 	GetBodyTypes(ctx context.Context) ([]models.BodyType, error)
 	GetBrands(ctx context.Context) ([]models.Brand, error)
 	GetDriveGears(ctx context.Context) ([]models.DriveGear, error)
-	GetModels(ctx context.Context) ([]models.Model, error)
+	GetModels(ctx context.Context, brandId uint64) ([]models.Model, error)
 }
 
 type autoMarketService struct {
@@ -53,8 +53,8 @@ func (am *autoMarketService) GetDriveGears(ctx context.Context) ([]models.DriveG
 	return am.autoMarketRepo.GetDriveGears(ctx)
 }
 
-func (am *autoMarketService) GetModels(ctx context.Context) ([]models.Model, error) {
-	return am.autoMarketRepo.GetModels(ctx)
+func (am *autoMarketService) GetModels(ctx context.Context, brandId uint64) ([]models.Model, error) {
+	return am.autoMarketRepo.GetModels(ctx, brandId)
 }
 
 func New(log zerolog.Logger, autoMarketRepo repository.AutoMarketRepo) AutoMarketService {

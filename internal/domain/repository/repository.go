@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/jackc/pgx/v4/pgxpool"
@@ -19,7 +20,7 @@ type AutoMarketRepo interface {
 	GetBodyTypes(ctx context.Context) ([]models.BodyType, error)
 	GetBrands(ctx context.Context) ([]models.Brand, error)
 	GetDriveGears(ctx context.Context) ([]models.DriveGear, error)
-	GetModels(ctx context.Context) ([]models.Model, error)
+	GetModels(ctx context.Context, brandId uint64) ([]models.Model, error)
 }
 
 type autoMarketRepo struct {
@@ -264,11 +265,15 @@ func (am *autoMarketRepo) GetDriveGears(ctx context.Context) ([]models.DriveGear
 	return driveGears, nil
 }
 
-func (am *autoMarketRepo) GetModels(ctx context.Context) ([]models.Model, error) {
+func (am *autoMarketRepo) GetModels(ctx context.Context, brandId uint64) ([]models.Model, error) {
 	ctxDb, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
 
 	query := "SELECT id, name, brand_id, parent_id FROM public.models"
+	if brandId > 0 {
+		query += fmt.Sprintf(" WHERE brand_id=%d", brandId)
+	}
+
 	rows, err := am.conn.Query(ctxDb, query)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
