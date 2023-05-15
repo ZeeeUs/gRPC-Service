@@ -39,7 +39,7 @@ func main() {
 		cfg.DatabaseConfig.MaxConn,
 	)
 	if err != nil {
-		log.Fatal().Err(err)
+		log.Fatal().Err(err).Send()
 	}
 
 	shutdown := make(chan os.Signal, 1)
